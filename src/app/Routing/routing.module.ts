@@ -7,7 +7,7 @@ import { EmployeeSeekingSkillsComponent } from '../employee-seeking-skills/emplo
 
 const routes: Routes = [
 
-  { path: 'employee-seeking-skills', component: EmployeeSeekingSkillsComponent },
+  { path: 'request-training', component: EmployeeSeekingSkillsComponent },
 
 ];
 
