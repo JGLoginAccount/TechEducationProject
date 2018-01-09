@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { EmployeeSeekingSkillsComponent } from './employee-seeking-skills/employee-seeking-skills.component';
 import { EmployeeOfferingSkillsComponent } from './employee-offering-skills/employee-offering-skills.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { DataService } from './data.service';
 
 
 
@@ -26,7 +27,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

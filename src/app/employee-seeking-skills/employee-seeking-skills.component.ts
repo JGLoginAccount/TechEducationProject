@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { fadeInAnimation } from '../animations/fade-in.animation';
+import { DataService } from '../data.service'
 
 @Component({
   selector: 'app-employee-seeking-skills',
@@ -13,7 +14,11 @@ import { fadeInAnimation } from '../animations/fade-in.animation';
 })
 export class EmployeeSeekingSkillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }
