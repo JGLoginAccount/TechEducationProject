@@ -5,10 +5,9 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './routing/routing.module';
-
 import { AppComponent } from './app.component';
 import { EmployeeSeekingSkillsComponent } from './employee-seeking-skills/employee-seeking-skills.component';
-import { EmployeeNeedingSkillComponent } from './employee-needing-skill/employee-needing-skill.component';
+import { EmployeeOfferingSkillsComponent } from './employee-offering-skills/employee-offering-skills.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
 
@@ -17,7 +16,7 @@ import { HomePageComponent } from './home-page/home-page.component';
   declarations: [
     AppComponent,
     EmployeeSeekingSkillsComponent,
-    EmployeeNeedingSkillComponent,
+    EmployeeOfferingSkillsComponent,
     HomePageComponent
   ],
   imports: [

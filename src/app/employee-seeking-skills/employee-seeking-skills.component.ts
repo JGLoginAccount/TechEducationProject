@@ -5,7 +5,6 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { fadeInAnimation } from '../animations/fade-in.animation';
 
-
 @Component({
   selector: 'app-employee-seeking-skills',
   templateUrl: './employee-seeking-skills.component.html',
