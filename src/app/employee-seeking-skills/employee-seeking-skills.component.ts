@@ -19,4 +19,8 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   ngOnInit() {
   }
 
+  requestSubmit(awardForm: NgForm){
+    console.log(awardForm.value);
+}
+
 }
