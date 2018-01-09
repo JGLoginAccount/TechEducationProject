@@ -19,7 +19,10 @@ import { EmployeeNeedingSkillComponent } from './employee-needing-skill/employee
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

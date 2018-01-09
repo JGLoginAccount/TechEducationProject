@@ -6,9 +6,8 @@ import { EmployeeSeekingSkillsComponent } from '../employee-seeking-skills/emplo
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'employee-seeking-skills', component: EmployeeSeekingSkillsComponent },
 
+  { path: 'employee-seeking-skills', component: EmployeeSeekingSkillsComponent },
 
 ];
 

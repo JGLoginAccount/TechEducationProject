@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import { Component, OnInit, ViewChild }      from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location }               from '@angular/common';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-employee-seeking-skills',
