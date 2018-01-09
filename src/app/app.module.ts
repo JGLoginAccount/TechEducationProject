@@ -9,6 +9,7 @@ import { AppRoutingModule } from './routing/routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeSeekingSkillsComponent } from './employee-seeking-skills/employee-seeking-skills.component';
 import { EmployeeNeedingSkillComponent } from './employee-needing-skill/employee-needing-skill.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -16,7 +17,8 @@ import { EmployeeNeedingSkillComponent } from './employee-needing-skill/employee
   declarations: [
     AppComponent,
     EmployeeSeekingSkillsComponent,
-    EmployeeNeedingSkillComponent
+    EmployeeNeedingSkillComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
