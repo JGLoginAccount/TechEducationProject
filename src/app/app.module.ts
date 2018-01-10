@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './routing/routing.module';
 
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { EmployeeSeekingSkillsComponent } from './employee-seeking-skills/employee-seeking-skills.component';
 import { EmployeeNeedingSkillComponent } from './employee-needing-skill/employee-needing-skill.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -16,6 +17,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
     EmployeeSeekingSkillsComponent,
     EmployeeNeedingSkillComponent,
     HomePageComponent
