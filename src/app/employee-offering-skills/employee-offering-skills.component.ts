@@ -20,17 +20,19 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
     private location: Location
   ) { }
   skills;
+  request;
 
   ngOnInit() {
     this.dataService.getRecords("skills")
-      .subscribe(
-      skills => {
-        this.skills = skills;
-      }
+      .subscribe(skills => {skills = this.skills;}
       )
     
     console.log (this.skills);
     
+    }
+
+
+
     }
 
 

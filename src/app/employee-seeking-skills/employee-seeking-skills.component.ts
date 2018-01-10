@@ -20,11 +20,28 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
     private location: Location
   ) { }
 
+  request;
+
   ngOnInit() {
   }
 
-  requestSubmit(awardForm: NgForm){
-    console.log(awardForm.value);
+  requestSubmit(userForm: NgForm){
+
+
+      this.request = {
+        "nNumber":"N0211099",
+        "menteeSkillRequested":userForm.value.skillRequested,
+        "menteeSkillOtherText":userForm.value.skillRequestedOther,
+        "menteeHoursRequested":userForm.value.hoursrequested,
+        "menteeTimeRequested":userForm.value.timeFrame,
+        "menteeRequestDescription":userForm.value.oppurtunity,
+        "menteeRequestStatus":userForm.value.status,
+        "menteeCompletedSummary":userForm.value.summary
+      }
+
+    console.log( this.request);
 }
+
+
 
 }
