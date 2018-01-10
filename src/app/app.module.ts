@@ -10,6 +10,7 @@ import { EmployeeSeekingSkillsComponent } from './employee-seeking-skills/employ
 import { EmployeeOfferingSkillsComponent } from './employee-offering-skills/employee-offering-skills.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DataService } from './data.service';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 
@@ -18,7 +19,8 @@ import { DataService } from './data.service';
     AppComponent,
     EmployeeSeekingSkillsComponent,
     EmployeeOfferingSkillsComponent,
-    HomePageComponent
+    HomePageComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
