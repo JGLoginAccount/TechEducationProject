@@ -25,31 +25,43 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
   request;
   errorMessage: string;
   profiles;
+  request2;
+id:number;
 
 
 
     getRecordForEdit(){
+
+      this.id=5;
       this.route.params
-        .switchMap((params: Params) => this.dataService.getRecord("profiles", +params['id']))
+        .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
         .subscribe(profiles => this.profiles = profiles);
+
+        console.log(this.profiles);
+        
     }
   
     ngOnInit() {
-      this.route.params
-        .subscribe((params: Params) => {
-          (+params['id']) ? this.getRecordForEdit() : null;
-        });
-        this.getSkills();
-    }
+
+      this.getSkills();
+        }
+       
   
 
     getSkills() {
       this.dataService.getRecords("skills")
-      .subscribe(skills => this.skills = skills,   
+      .subscribe(skills => {this.skills = skills  
+        this.getRecordForEdit();
+      },   
         error =>  this.errorMessage = <any>error);
         console.log(this.skills);
         console.log(this.errorMessage);
+
+
     }
+
+
+  
 
     requestSubmit(userForm: NgForm){
 
@@ -58,13 +70,18 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
         "user":"N0211099",
         "mentorContactMethod":userForm.value.contact_method,
         "mentorBestContact":userForm.value.best_contact,
-        "mentorSkillSetExperience":userForm.value.skillsOffered,
+        
         "mentorTimeFrameAvailable":userForm.value.timeFrame,
         "mentorAvailabilityHours":userForm.value.hours_available,
         "mentorAvailability":userForm.value.availability_status
       }
 
-      this.dataService.editRecord("mentor",this.request,1).subscribe();
+      this.request2 = {
+        "mentorSkillSetExperience":userForm.value.skillsOffered
+      }
+
+     
+      this.dataService.editRecordMentor("mentor",this.request,this.request2,5).subscribe();
 
     console.log( this.request);
 }

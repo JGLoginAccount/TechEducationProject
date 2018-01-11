@@ -36,11 +36,17 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
 
     getSkills() {
       this.dataService.getRecords("skills")
-      .subscribe(skills => this.skills = skills,   
+      .subscribe(skills => {this.skills = skills  
+        this.dataService.getRecords("skills").subscribe()
+      },
         error =>  this.errorMessage = <any>error);
+
+
         console.log(this.skills);
         console.log(this.errorMessage);
     }
+
+
 
 
   requestSubmit(userForm: NgForm){
