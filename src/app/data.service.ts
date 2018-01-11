@@ -15,9 +15,12 @@ export class DataService {
 
     getRecords(endpoint: string): Observable<any[]> {
         let apiUrl = this.baseUrl + endpoint;
+        console.log(apiUrl);
         return this.http.get(apiUrl)
             .map(this.extractData)
             .catch(this.handleError);
+
+            
     }
 
     getRecord(endpoint: string, id): Observable<object> {

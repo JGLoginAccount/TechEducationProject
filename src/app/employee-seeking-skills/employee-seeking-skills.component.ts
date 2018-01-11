@@ -21,15 +21,33 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   ) { }
 
   request;
+  skills;
+  response;
+      
+
+  errorMessage: string;
 
   ngOnInit() {
-  }
+   
+    this.getSkills();
+    
+    
+    }
+
+    getSkills() {
+      this.dataService.getRecords("skills")
+      .subscribe(skills => this.skills = skills,   
+        error =>  this.errorMessage = <any>error);
+        console.log(this.skills);
+        console.log(this.errorMessage);
+    }
+
 
   requestSubmit(userForm: NgForm){
 
 
       this.request = {
-        "nNumber":"N0211099",
+        "user":"N0211099",
         "menteeSkillRequested":userForm.value.skillRequested,
         "menteeSkillOtherText":userForm.value.skillRequestedOther,
         "menteeHoursRequested":userForm.value.hoursrequested,
@@ -38,6 +56,9 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
         "menteeRequestStatus":userForm.value.status,
         "menteeCompletedSummary":userForm.value.summary
       }
+
+      this.dataService.addRecord("submit",this.request).subscribe(response => this.response = response,   
+        error =>  this.errorMessage = <any>error);
 
     console.log( this.request);
 }
