@@ -109,15 +109,21 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
         "mentorTimeFrameAvailable":userForm.value.timeFrame,
         "mentorAvailabilityHours":userForm.value.hours_available,
         "mentorAvailability":userForm.value.availability_status,
-        "mentorSkills":userForm.value.skillsOffered
+       
       }
 
-     
 
-     
-      this.dataService.editRecord("mentor",this.request,5).subscribe();
+        this.request2 =[userForm.value.skillsOffered]
 
-    console.log( this.request);
+        console.log(this.request2[0]);
+    
+  
+     
+      this.dataService.editRecord("mentor",this.request,5).subscribe(request=>
+     this.dataService.editRecord("mentor/skills",this.request2[0],5).subscribe());
+      
+
+
 }
 
 
