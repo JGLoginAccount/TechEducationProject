@@ -5,6 +5,11 @@ import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { fadeInAnimation } from '../animations/fade-in.animation';
 import { DataService } from '../data.service'
+import { skills } from '../skills';
+import { MentorSkills } from '../mentor-skills';
+import { Mentor } from '../mentor';
+
+
 
 @Component({
   selector: 'app-employee-offering-skills',
@@ -22,11 +27,13 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
 
   skills;
+  skillmaster:skills;
+   profile1;
   request;
   errorMessage: string;
-  profiles;
   request2;
-id:number;
+  profiles:Mentor;
+  id:number;
 
 
 
@@ -35,30 +42,58 @@ id:number;
       this.id=5;
       this.route.params
         .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
-        .subscribe(profiles => this.profiles = profiles);
+        .subscribe(profiles => {this.profile1 = profiles;
 
-        console.log(this.profiles);
-        
+        this.profiles=this.profile1[0];
+          
+          console.log(this.profiles);
+          console.log(this.profile1);
+          this.getSkills();});
+
+    
     }
   
     ngOnInit() {
-
-      this.getSkills();
+    
+      this.getRecordForEdit();
+     
         }
        
   
 
     getSkills() {
       this.dataService.getRecords("skills")
-      .subscribe(skills => {this.skills = skills  
-        this.getRecordForEdit();
-      },   
-        error =>  this.errorMessage = <any>error);
-        console.log(this.skills);
-        console.log(this.errorMessage);
+      .subscribe(skills => {this.skills = skills;
+
+     
+
+            for (var j = 0; j < this.profiles.mentorSkills.length ; j++) {
+              var mentorSkills = this.profiles.mentorSkills[j].id;
+
+              for (var i = 0; i < skills.length ; i++) {
+                var item = this.skills[i].id;
+                console.log(item);
+              if (item==mentorSkills) {
+                console.log("This works!");
+                var elements=document.querySelectorAll('#inner,#inner *');
+                console.log(elements);
+    
 
 
-    }
+             }
+            }
+         }
+        }
+      )
+
+
+      ,   
+        error =>  {this.errorMessage = <any>error;
+        }
+      }
+
+
+
 
 
   
@@ -73,15 +108,14 @@ id:number;
         
         "mentorTimeFrameAvailable":userForm.value.timeFrame,
         "mentorAvailabilityHours":userForm.value.hours_available,
-        "mentorAvailability":userForm.value.availability_status
-      }
-
-      this.request2 = {
-        "mentorSkillSetExperience":userForm.value.skillsOffered
+        "mentorAvailability":userForm.value.availability_status,
+        "mentorSkills":userForm.value.skillsOffered
       }
 
      
-      this.dataService.editRecordMentor("mentor",this.request,this.request2,5).subscribe();
+
+     
+      this.dataService.editRecord("mentor",this.request,5).subscribe();
 
     console.log( this.request);
 }
