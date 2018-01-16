@@ -27,107 +27,127 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
 
   skills;
-  skillmaster:skills;
-   profile1;
+  skillmaster: skills;
+  profile1;
   request;
   errorMessage: string;
   request2;
-  profiles:Mentor;
-  id:number;
+  profiles: Mentor;
+  id: number;
+  contactMethod;
+  timeFrame;
 
 
 
-    getRecordForEdit(){
+  getRecordForEdit() {
 
-      this.id=5;
-      this.route.params
-        .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
-        .subscribe(profiles => {this.profile1 = profiles;
+    this.id = 10;
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
+      .subscribe(profiles => {
+        this.profile1 = profiles;
 
-        this.profiles=this.profile1[0];
-          
-          console.log(this.profiles);
-          console.log(this.profile1);
-          this.getSkills();});
+        this.profiles = this.profile1[0];
 
-    
+        console.log(this.profiles);
+        console.log(this.profile1);
+        this.getSkills();
+      });
+
+
+  }
+
+  ngOnInit() {
+
+    this.getRecordForEdit();
+    this.getContactMethod();
+    this.getTimeFrame();
+
+
+
+  }
+  getContactMethod() {
+    this.dataService.getRecords("contactMethod")
+      .subscribe(contactMethod => {
+        this.contactMethod = contactMethod;
+      })
     }
-  
-    ngOnInit() {
-    
-      this.getRecordForEdit();
-     
-        }
-       
-  
 
-    getSkills() {
-      this.dataService.getRecords("skills")
-      .subscribe(skills => {this.skills = skills;
+    getTimeFrame() {
+      this.dataService.getRecords("timeFrame")
+        .subscribe(timeFrame => {
+          this.timeFrame = timeFrame;
+        })
+      }
 
-     
-
-            for (var j = 0; j < this.profiles.mentorSkills.length ; j++) {
-              var mentorSkills = this.profiles.mentorSkills[j].id;
-
-              for (var i = 0; i < skills.length ; i++) {
-                var item = this.skills[i].id;
-                console.log(item);
-              if (item==mentorSkills) {
-                console.log("This works!");
-                var elements=document.querySelectorAll('#inner,#inner *');
-                console.log(elements);
-    
+  getSkills() {
+    this.dataService.getRecords("skills")
+      .subscribe(skills => {
+        this.skills = skills;
 
 
-             }
+
+        for (var j = 0; j < this.profiles.mentorSkills.length; j++) {
+          var mentorSkills = this.profiles.mentorSkills[j].id;
+
+          for (var i = 0; i < skills.length; i++) {
+            var item = this.skills[i].id;
+            console.log(item);
+            if (item == mentorSkills) {
+              console.log("This works!");
+              var elements = document.querySelectorAll('#inner,#inner *');
+              console.log(elements);
+
+
+
             }
-         }
+          }
         }
+      }
       )
 
 
-      ,   
-        error =>  {this.errorMessage = <any>error;
-        }
+      ,
+      error => {
+      this.errorMessage = <any>error;
       }
-
-
-
-
+  }
 
   
 
-    requestSubmit(userForm: NgForm){
 
 
-      this.request = {
-        "user":"N0211099",
-        "mentorContactMethod":userForm.value.contact_method,
-        "mentorBestContact":userForm.value.best_contact,
-        
-        "mentorTimeFrameAvailable":userForm.value.timeFrame,
-        "mentorAvailabilityHours":userForm.value.hours_available,
-        "mentorAvailability":userForm.value.availability_status,
-       
-      }
+
+  requestSubmit(userForm: NgForm) {
 
 
-        this.request2 =[userForm.value.skillsOffered]
+    this.request = {
+      "user": "N0211099",
+      "mentorContactMethod": userForm.value.contactMethod,
+      "mentorBestContact": userForm.value.best_contact,
 
-        console.log(this.request2[0]);
-    
-  
-     
-      this.dataService.editRecord("mentor",this.request,5).subscribe(request=>
-     this.dataService.editRecord("mentor/skills",this.request2[0],5).subscribe());
-      
+      "mentorTimeFrameAvailable": userForm.value.timeFrame,
+      "mentorAvailabilityHours": userForm.value.hours_available,
+      "mentorAvailability": userForm.value.availability_status,
+
+    }
+
+
+    this.request2 = [userForm.value.skillsOffered]
+
+    console.log(this.request2[0]);
+
+
+
+    this.dataService.editRecord("mentor", this.request, 10).subscribe(request =>
+      this.dataService.editRecord("mentor/skills", this.request2[0], 10).subscribe());
+
+
+
+  }
+
+
+
 
 
 }
-
-
-
-
-
-    }

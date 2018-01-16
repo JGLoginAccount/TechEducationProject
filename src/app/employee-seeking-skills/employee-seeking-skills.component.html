@@ -12,15 +12,20 @@
         <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
             <tbody>
                 <tr>
-                    <td>Skills Offered
+                    <td>Employee Id
                     </td>
-                    <td>
-                    <select ngModel #user_skillRequested_Other="ngModel" type="text" class="form-control" id="skillRequested" name="skillRequested">
-                      <option *ngFor="let skill of skills" [value]="skill.skills">{{skill.skills}}</option>
-                      </select>
+                    <select ngModel #user_skillRequested="ngModel" type="text" class="form-control" id="skillRequested" name="skillRequested">
+                        <option *ngFor="let skill of skills" [value]="skill.skills">{{skill.skills}}</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td>Skills Requested
                     </td>
-          
-                  </tr>
+                    <select ngModel #user_skillRequested="ngModel" type="text" class="form-control" id="skillRequested" name="skillRequested">
+                        <option *ngFor="let skill of skills" [value]="skill.skills">{{skill.skills}}</option>
+                    </select>
+                </tr>
+
                 <tr>
                     <td>Skill Requested - other
                     </td>
@@ -29,44 +34,62 @@
                 </tr>
                 <tr>
                     <td>Hours Requested
-                </td>
+                    </td>
                     <input ngModel #user_hoursRequested="ngModel" type="number" class="form-control" id="hoursrequested" name="hoursrequested"
                         required minlength="2" maxlength="3" placeholder="0-10">
-           
-                <tr>
-                    <td>Time Frame
-                    </td> 
-                    <input ngModel #user_timeFrame="ngModel" type="text" class="form-control" id="timeFrame" name="timeFrame" required minlength="9"
-                        maxlength="20" placeholder="Next Week/Next Two Weeks/Next Three Weeks">
-                </tr>
 
-                <tr>
-                    <td>Description of Opportunity
-                    </td>
-                    <input ngModel #user_opportunity="ngModel" type="text" class="form-control" id="oppurtunity" name="oppurtunity" required
-                        minlength="10" maxlength="100" placeholder="Free form">
-                </tr>
-                <tr>
-                    <td>Status
-                    </td>
-                    <input ngModel #user_status="ngModel" type="text" class="form-control" id="status" name="status" required minlength="4"
-                        maxlength="12" placeholder="Open/Assigned/In Progress/Closed">
-                </tr>
+                    <tr>
+                        <td>Time Frame
+                        </td>
+                        <select [ngModel]="profiles?.mentorTimeFrameAvailable" ngModel #user_timeFrame="ngModel" type="text" class="form-control" id="timeFrame" name="timeFrame">
+                            <option *ngFor="let timeFrame of timeFrame" [value]="timeFrame.timeFrame">{{timeFrame.timeFrame}}</option>
+                        </select>
+                        </tr>
+                   
 
-                <tr>
-                    <td>Resolution Summary
-                    </td>
-                    <input ngModel #user_resolutionSummary="ngModel" type="text" class="form-control" id="summary" name="summary" required minlength="2"
-                        maxlength="100" placeholder="Post completion summary">
-                </tr>
+                    <tr>
+                        <td>Description of Opportunity
+                        </td>
+                        <input ngModel #user_opportunity="ngModel" type="text" class="form-control" id="oppurtunity" name="oppurtunity" required
+                            minlength="10" maxlength="100" placeholder="Free form">
+                    </tr>
+                    <tr>
+                        <td>Status
+                        </td>
+                        <select ngModel #user_status="ngModel" type="text" class="form-control" id="status" name="status">
+                                <option *ngFor="let requestStatus of requestStatus" [value]="requestStatus.requestStatus">{{requestStatus.requestStatus}}</option>
+                            </select>
+                    </tr>
 
-                <tr>
-                    <td>
-                        <button type="submit" class="btn btn-primary">Submit Request</button>&nbsp;
-                    </td>
-                </tr>
+                    <tr>
+                        <td>Resolution Summary
+                        </td>
+                        <input ngModel #user_resolutionSummary="ngModel" type="text" class="form-control" id="summary" name="summary" required minlength="2"
+                            maxlength="100" placeholder="Post completion summary">
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Submit Request</button>&nbsp;
+                        </td>
+                    </tr>
             </tbody>
         </table>
 
     </form>
+    <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
+        <thead>
+            <th>Skill Requested</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Office</th>
+            <th>Organization</th>
+            <th>Market</th>
+            <th>Time Frame</th>
+            <th>Contact Method</th>
+            <th>Best Method</th>
+        </thead>
+        <tr *ngFor="let responses of response">
+            <td *ngFor="let dataresponse of responses"> {{dataresponse}} </td>
+        </tr>
+    </table>
 </section>

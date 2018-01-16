@@ -23,6 +23,8 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   request;
   skills;
   response;
+  timeFrame;
+  requestStatus;
       
 
   errorMessage: string;
@@ -30,7 +32,8 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   ngOnInit() {
    
     this.getSkills();
-    
+    this.getTimeFrame();
+    this.getRequestStatus();
     
     }
 
@@ -41,13 +44,22 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
       },
         error =>  this.errorMessage = <any>error);
 
-
-        console.log(this.skills);
-        console.log(this.errorMessage);
+   
     }
 
+    getTimeFrame() {
+      this.dataService.getRecords("timeFrame")
+        .subscribe(timeFrame => {
+          this.timeFrame = timeFrame;
+        })
+      }
 
-
+    getRequestStatus() {
+        this.dataService.getRecords("requestStatus")
+          .subscribe(requestStatus => {
+            this.requestStatus = requestStatus;
+          })
+        }  
 
   requestSubmit(userForm: NgForm){
 

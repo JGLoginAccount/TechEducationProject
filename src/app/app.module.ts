@@ -11,6 +11,8 @@ import { EmployeeOfferingSkillsComponent } from './employee-offering-skills/empl
 import { HomePageComponent } from './home-page/home-page.component';
 import { DataService } from './data.service';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AdminComponent } from './admin/admin.component';
+
 
 
 
@@ -20,7 +22,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     EmployeeSeekingSkillsComponent,
     EmployeeOfferingSkillsComponent,
     HomePageComponent,
-    NavigationComponent
+    NavigationComponent,
+    AdminComponent
+ 
   ],
   imports: [
     BrowserModule,
