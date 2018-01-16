@@ -63,7 +63,11 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
         "menteeCompletedSummary":userForm.value.summary
       }
 
-      this.dataService.addRecord("submit",this.request).subscribe(response => this.response = response,   
+      this.dataService.addRecord("submit",this.request).subscribe(response => { this.response = response
+        
+       console.log(response); 
+      }
+        ,   
         error =>  this.errorMessage = <any>error);
 
     console.log( this.request);

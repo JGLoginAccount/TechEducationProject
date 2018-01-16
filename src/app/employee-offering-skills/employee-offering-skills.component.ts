@@ -39,15 +39,13 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
     getRecordForEdit(){
 
-      this.id=5;
+      this.id=4;
       this.route.params
         .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
         .subscribe(profiles => {this.profile1 = profiles;
 
         this.profiles=this.profile1[0];
-          
-          console.log(this.profiles);
-          console.log(this.profile1);
+        
           this.getSkills();});
 
     
@@ -72,11 +70,11 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
               for (var i = 0; i < skills.length ; i++) {
                 var item = this.skills[i].id;
-                console.log(item);
+            
               if (item==mentorSkills) {
-                console.log("This works!");
+                
                 var elements=document.querySelectorAll('#inner,#inner *');
-                console.log(elements);
+            
     
 
 
@@ -115,12 +113,11 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
         this.request2 =[userForm.value.skillsOffered]
 
-        console.log(this.request2[0]);
     
   
      
-      this.dataService.editRecord("mentor",this.request,5).subscribe(request=>
-     this.dataService.editRecord("mentor/skills",this.request2[0],5).subscribe());
+      this.dataService.editRecord("mentor",this.request,4).subscribe(request=>
+      this.dataService.editRecord("mentor/skills",this.request2[0],4).subscribe());
       
 
 
