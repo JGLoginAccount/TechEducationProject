@@ -65,7 +65,7 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
 
 
       this.request = {
-        "user":"N0211099",
+        "nNumber":"N0211099",
         "menteeSkillRequested":userForm.value.skillRequested,
         "menteeSkillOtherText":userForm.value.skillRequestedOther,
         "menteeHoursRequested":userForm.value.hoursrequested,
