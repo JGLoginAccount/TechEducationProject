@@ -36,13 +36,14 @@ export class LoginComponent implements OnInit {
 
 
     {
-      "username":userForm.value.username,
+      "username":userForm.value.userName,
       "password": userForm.value.password,
   }
 
+  {console.log(this.request);
 
 
-    this.dataService.login("mentor", this.request).subscribe(request => {console.log(request)}
+    this.dataService.login("session/mine", this.request).subscribe(request => {console.log(request)}
 
 
     )

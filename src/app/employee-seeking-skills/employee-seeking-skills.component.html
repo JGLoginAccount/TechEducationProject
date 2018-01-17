@@ -78,6 +78,7 @@
        
 
     </form>
+
     <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
         <thead>
             <th>Skill Requested</th>
@@ -91,7 +92,8 @@
             <th>Best Method</th>
         </thead>
         <tr *ngFor="let responses of response">
-            <td *ngFor="let dataresponse of responses"> {{dataresponse}} </td>
+            <td> {{responses.mentorContactMethod}} </td>
         </tr>
     </table>
+
 </section>
