@@ -12,6 +12,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { DataService } from './data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -23,7 +24,8 @@ import { AdminComponent } from './admin/admin.component';
     EmployeeOfferingSkillsComponent,
     HomePageComponent,
     NavigationComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent
  
   ],
   imports: [

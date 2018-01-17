@@ -4,6 +4,7 @@ import { EmployeeSeekingSkillsComponent } from '../employee-seeking-skills/emplo
 import { EmployeeOfferingSkillsComponent } from '../employee-offering-skills/employee-offering-skills.component'
 import { HomePageComponent } from '../home-page/home-page.component';
 import { AdminComponent } from '../admin/admin.component';
+import { LoginComponent } from '../login/login.component';
 
 
 
