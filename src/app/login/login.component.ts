@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/add/operator/switchMap';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
@@ -9,6 +9,8 @@ import { DataService } from '../data.service'
 import { skills } from '../skills';
 import { MentorSkills } from '../mentor-skills';
 import { Mentor } from '../mentor';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -18,9 +20,11 @@ import { Mentor } from '../mentor';
 export class LoginComponent implements OnInit {
 
   request;
+  
+
 
   constructor(
-
+    private router: Router,
     private dataService: DataService,
     private route: ActivatedRoute,
     private location: Location
@@ -36,17 +40,21 @@ export class LoginComponent implements OnInit {
 
 
     {
-      "username":userForm.value.username,
+      "username":userForm.value.userName,
       "password": userForm.value.password,
   }
 
 
 
-    this.dataService.login("mentor", this.request).subscribe(request => {console.log(request)}
+    this.dataService.login("session/mine", this.request).subscribe(request => {console.log(request);
+      this.router.navigate(['home']);
+    
+    
+    }, error=>{alert("Invalid username")}
+     
 
-
+    
     )
-
 
 
   }

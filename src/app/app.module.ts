@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
     NavigationComponent,
     AdminComponent,
     LoginComponent
+    
  
   ],
   imports: [
