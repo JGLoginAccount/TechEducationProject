@@ -41,7 +41,7 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
   getRecordForEdit() {
 
-    this.id = 10;
+    this.id = 12;
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("mentor", this.id))
       .subscribe(profiles => {
@@ -122,14 +122,16 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
 
     this.request = {
-      "user": "N0211099",
+      "user": userForm.value.mentornNumber,
+      "mentorNnumber": userForm.value.mentornNumber,
+      "mentorFirstName": userForm.value.mentorFirstName,
+      "mentorLastName": userForm.value.mentorLastName,
       "mentorContactMethod": userForm.value.contactMethod,
       "mentorBestContact": userForm.value.best_contact,
-
+      "mentorSkills": userForm.value.mentorskillsOffered,
       "mentorTimeFrameAvailable": userForm.value.timeFrame,
       "mentorAvailabilityHours": userForm.value.hours_available,
       "mentorAvailability": userForm.value.availability_status,
-
     }
 
 
@@ -137,10 +139,10 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
     console.log(this.request2[0]);
 
+    console.log(this.request);
 
-
-    this.dataService.editRecord("mentor", this.request, 10).subscribe(request =>
-      this.dataService.editRecord("mentor/skills", this.request2[0], 10).subscribe());
+    this.dataService.editRecord("mentor", this.request, 12).subscribe(request =>
+      this.dataService.editRecord("mentor/skills", this.request2[0], 12).subscribe());
 
 
 
