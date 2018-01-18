@@ -15,7 +15,7 @@
       <tbody>
           <tr>
           <td>N Number</td>
-          <input [ngModel]="profiles?.mentorNnumber" ngModel #user_mentornNumber="ngModel" type="text" class="form-control" id="mentornNumber" name="mentornNumber" required
+          <input [ngModel]="profiles?.mentorNnumber" ngModel #user_mentornNumber="ngModel" type="text" class="form-control" id="mentornNumber" name="mentornNumber" required readonly
             minlength="2" maxlength="10" placeholder="n1234567">    
            </tr>
 
@@ -34,7 +34,7 @@
        <tr>
           <td>Contact Method
           </td>
-          <select ngModel #user_contactMethod="ngModel" type="text" class="form-control" id="contactMethod" name="contactMethod">
+          <select [ngModel]="profiles?.mentorContactMethod" ngModel #user_contactMethod="ngModel" type="text" class="form-control" id="mentorContactMethod" name="mentorContactMethod">
             <option *ngFor="let contactMethod of contactMethod" [value]="contactMethod.contactMethod" required>{{contactMethod.contactMethod}}</option>
           </select>
         </tr>

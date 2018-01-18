@@ -4,6 +4,7 @@ export class Mentor {
 
     objId;
     mentorAvailability;
+    mentorNnumber;
 
     mentorTimeFrameAvailable;
     mentorContactMethod;

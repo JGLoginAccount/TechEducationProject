@@ -5,6 +5,8 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { fadeInAnimation } from '../animations/fade-in.animation';
 import { DataService } from '../data.service'
+import { request } from 'https';
+import { Mentor } from '../mentor';
 
 @Component({
   selector: 'app-employee-seeking-skills',
@@ -25,15 +27,19 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   response;
   timeFrame;
   requestStatus;
+  id;
       
 
   errorMessage: string;
+  profile:Mentor;
 
   ngOnInit() {
    
     this.getSkills();
     this.getTimeFrame();
     this.getRequestStatus();
+    this.getUser();
+   
     
     }
 
@@ -59,13 +65,23 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
           .subscribe(requestStatus => {
             this.requestStatus = requestStatus;
           })
-        }  
+        } 
+        
+        getUser() {
+          this.dataService.getRecords("session/mine/login")
+            .subscribe(id => { this.id=id;
+              this.profile = this.id[0];
+              console.log(id);
+              console.log(this.profile);
+            })
+          }
 
   requestSubmit(userForm: NgForm){
 
+    
 
       this.request = {
-        "nNumber":"N0211099",
+        "nNumber":this.profile.mentorNnumber,
         "menteeSkillRequested":userForm.value.skillRequested,
         "menteeSkillOtherText":userForm.value.skillRequestedOther,
         "menteeHoursRequested":userForm.value.hoursrequested,
@@ -77,12 +93,10 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
 
       this.dataService.addRecord("submit",this.request).subscribe(response => { this.response = response
         
-       console.log(response); 
+        console.log(this.request);
       }
         ,   
         error =>  this.errorMessage = <any>error);
-
-    console.log( this.request);
 }
 
 
