@@ -96,11 +96,11 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
           for (var i = 0; i < skills.length; i++) {
             var item = this.skills[i].id;
-            console.log(item);
+            
             if (item == mentorSkills) {
               console.log("This works!");
               var elements = document.querySelectorAll('#inner,#inner *');
-              console.log(elements);
+           
 
 
 

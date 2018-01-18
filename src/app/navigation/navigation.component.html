@@ -19,7 +19,7 @@
                 <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
                 <li routerLinkActive="active"><a routerLink="/request-training" >Training</a></li>
                 <li routerLinkActive="active"><a routerLink="/offer-training" >Mentoring</a></li>
-                <li routerLinkActive="active"><a routerLink="/admin" >Admin</a></li>
+                <li *ngIf="admin" routerLinkActive="active"><a routerLink="/admin" >Admin</a></li>
               
             </ul>
             

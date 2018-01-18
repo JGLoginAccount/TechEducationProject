@@ -13,6 +13,7 @@ import { DataService } from './data.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
+import { BasePageComponent } from './base-page/base-page.component';
 
 
 
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     HomePageComponent,
     NavigationComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    BasePageComponent
     
  
   ],

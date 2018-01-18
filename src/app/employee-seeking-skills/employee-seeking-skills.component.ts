@@ -72,8 +72,7 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
           this.dataService.getRecords("session/mine/login")
             .subscribe(id => { this.id=id;
               this.profile = this.id[0];
-              console.log(id);
-              console.log(this.profile);
+          
             })
           }
 
@@ -94,7 +93,6 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
 
       this.dataService.addRecord("submit",this.request).subscribe(response => { this.response = response
         
-        console.log(this.request);
         this.showTable=true;
       }
         ,   

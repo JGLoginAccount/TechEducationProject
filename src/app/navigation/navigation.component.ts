@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../data.service'
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  @Input() admin:boolean;
+  
+  adminObject;
+
+  constructor(
+  ) { }
 
   ngOnInit() {
-  }
+      }
+    }
 
-}

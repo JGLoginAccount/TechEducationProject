@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   
   user;
 
+  adminObject;
+
+  admin:boolean=false;
+
   showLogin:boolean=true;
 
   constructor(
@@ -67,16 +71,29 @@ export class LoginComponent implements OnInit {
 
 
 checkUser() {
-  this.dataService.getRecords("session/mine").subscribe(user => {console.log(user);
+  this.dataService.getRecords("session/mine").subscribe(user => {
 
+    console.log(user);
     this.user=user;
+});
+
+
+this.dataService.getRecords("session/mine/login").subscribe(returnValue=> {
+
+  this.adminObject=returnValue[0];
+  console.log(returnValue); 
+
+  if (this.adminObject.mentorNnumber=="admin") {
+    this.admin=true;
+  }
 })
+
 
 
 }
 
 alertMe() {
   this.checkUser();
-  console.log(this.request);
+
 }
 }
