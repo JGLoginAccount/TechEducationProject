@@ -149,8 +149,16 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
 
 
-    this.dataService.editRecord("mentor", this.request, this.id).subscribe(request =>
-    this.dataService.editRecord("mentor/skills", this.request2[0], this.id).subscribe());
+    this.dataService.editRecord("mentor", this.request, this.id).subscribe(request => {
+
+      alert("Profile Updated");
+
+    this.dataService.editRecord("mentor/skills", this.request2[0], this.id).subscribe()
+    }
+  
+      
+  
+  );
 
 
 

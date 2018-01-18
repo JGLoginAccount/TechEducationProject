@@ -27,6 +27,17 @@ export class DataService {
             
     }
 
+
+    getUser(endpoint: string): Observable<object> {
+        let apiUrl = this.baseUrl + endpoint;
+        console.log(apiUrl);
+        return this.http.get(apiUrl, this.options)
+            .map(this.extractData)
+            .catch(this.handleError);
+
+            
+    }
+
     getRecord(endpoint: string, id): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
         return this.http.get(apiUrl, this.options)

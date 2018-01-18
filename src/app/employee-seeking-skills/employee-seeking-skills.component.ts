@@ -5,7 +5,7 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { fadeInAnimation } from '../animations/fade-in.animation';
 import { DataService } from '../data.service'
-import { request } from 'https';
+import { Request } from '@angular/http';
 import { Mentor } from '../mentor';
 
 @Component({
@@ -28,6 +28,7 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
   timeFrame;
   requestStatus;
   id;
+  showTable:boolean=false;
       
 
   errorMessage: string;
@@ -94,6 +95,7 @@ export class EmployeeSeekingSkillsComponent implements OnInit {
       this.dataService.addRecord("submit",this.request).subscribe(response => { this.response = response
         
         console.log(this.request);
+        this.showTable=true;
       }
         ,   
         error =>  this.errorMessage = <any>error);

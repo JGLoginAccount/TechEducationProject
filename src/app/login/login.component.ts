@@ -21,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   request;
   
+  user;
 
+  showLogin:boolean=true;
 
   constructor(
     private router: Router,
@@ -31,6 +33,8 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    
   }
 
   requestSubmit(userForm: NgForm) {
@@ -44,16 +48,15 @@ export class LoginComponent implements OnInit {
       "password": userForm.value.password,
   }
 
-  {console.log(this.request);
+    this.dataService.login("session/mine", this.request).subscribe(request => {
 
-
-    this.dataService.login("session/mine", this.request).subscribe(request => {console.log(request);
-      this.router.navigate(['home']);
+      this.checkUser();
+      this.showLogin=false;
     
     
     }, error=>{alert("Invalid username")}
      
-
+   
     
     )
 
@@ -61,5 +64,19 @@ export class LoginComponent implements OnInit {
   }
 
 
+
+
+checkUser() {
+  this.dataService.getRecords("session/mine").subscribe(user => {console.log(user);
+
+    this.user=user;
+})
+
+
+}
+
+alertMe() {
+  this.checkUser();
+  console.log(this.request);
 }
 }
