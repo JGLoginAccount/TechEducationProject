@@ -45,13 +45,13 @@
         </tr>
 
         <tr>
-          <td>Skills Offered
-          </td>
-           <select  [ngModel]="profiles?.mentorSkillSetExperience"  ngModel #user_skillsOffered="ngModel" class="form-control" id="skillsOffered" name="skillsOffered" required multiple>
-            <option *ngFor="let skill of skills" [value]="skill.skills">{{skill.skills}}</option>
-            </select>
-          
-        </tr>
+            <td>Skills Offered
+            </td>
+             <select  [ngModel]="profiles?.mentorSkills" [compareWith]="compareSkills"  ngModel #user_skillsOffered="ngModel" class="form-control" id="skillsOffered" name="skillsOffered" required multiple>
+              <option *ngFor="let skill of skills" [ngValue]="skill.skills">{{skill.skills}}</option>
+              </select>
+            
+          </tr>
         <tr>
           <td>Time Frame
           </td>

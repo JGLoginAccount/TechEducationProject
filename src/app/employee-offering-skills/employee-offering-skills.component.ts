@@ -118,7 +118,9 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
   }
 
   
-
+  compareSkills(s1, s2): boolean {
+    return s1 === s2.skills
+  }
 
 
 
@@ -146,8 +148,6 @@ export class EmployeeOfferingSkillsComponent implements OnInit {
 
 
     this.request2 = this.skillsValue
-
-
 
     this.dataService.editRecord("mentor", this.request, this.id).subscribe(request => {
 

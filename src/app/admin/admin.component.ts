@@ -15,9 +15,31 @@ import { DataService } from '../data.service'
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  results;
+  showTable = false;
+  MentorProfile;
+
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }
 
-}
+  requestMentors() {
+    this.dataService.getRecords("mentor").subscribe(MentorProfile=>{this.MentorProfile = MentorProfile
+    console.log(MentorProfile)
+    this.showTable=true;
+      })
+     }
+
+  
+  requestSubmit() {
+  this.dataService.getRecords("submit").subscribe(results=>{this.results = results
+  console.log(results)
+  this.showTable=true;
+    })
+   }
+  }
