@@ -5,6 +5,8 @@ import { EmployeeOfferingSkillsComponent } from '../employee-offering-skills/emp
 import { HomePageComponent } from '../home-page/home-page.component';
 import { AdminComponent } from '../admin/admin.component';
 import { LoginComponent } from '../login/login.component';
+import { ResourceLinksComponent } from '../resource-links/resource-links.component';
+
 
 
 
@@ -19,6 +21,8 @@ const routes: Routes = [
               { path: 'request-training', component: EmployeeSeekingSkillsComponent },
               { path: 'offer-training', component: EmployeeOfferingSkillsComponent },
               { path: 'admin', component: AdminComponent },
+              { path: 'resource-links', component: ResourceLinksComponent },
+
   
     
     

@@ -14,6 +14,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { BasePageComponent } from './base-page/base-page.component';
+import { ResourceLinksComponent } from './resource-links/resource-links.component';
 
 
 
@@ -27,7 +28,8 @@ import { BasePageComponent } from './base-page/base-page.component';
     NavigationComponent,
     AdminComponent,
     LoginComponent,
-    BasePageComponent
+    BasePageComponent,
+    ResourceLinksComponent
     
  
   ],
