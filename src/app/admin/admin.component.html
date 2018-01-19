@@ -67,7 +67,7 @@
                       <td> {{ responses?.mentorNnumber }} </td>
                       <td> {{ responses?.mentorOffice }} </td>
                       <td> {{ responses?.mentorTimeFrameAvailable }} </td>
-                      <td *ngFor="let skills of responses.mentorSkills" > {{ skills.skills }} </td>
+                      <td><div *ngFor="let skills of responses.mentorSkills" > {{ skills.skills }}</div> </td>
 
                   </tr>
                   </table>

@@ -71,12 +71,12 @@
           <td>Availability Status
           </td>
           <label class="btn btn-info active" [ngStyle]="{'background-color': '#1976D2'}">
-              Yes      <input [ngModel]="profiles?.mentorAvailability"  ngModel #user_availabilityStatus="ngModel" checked type="radio" class="radio-inline" id="availability_status" name="availability_status" value=”yes”>             No<input ngModel #user_availabilityStatus="ngModel" type="radio" class="radio-inline" id="availability_status" name="availability_status" value="no">
+              Yes      <input [ngModel]="profiles?.mentorAvailability"  ngModel #user_availabilityStatus="ngModel" checked type="radio" class="radio-inline" id="availability_status" name="availability_status" value=yes>             No<input ngModel #user_availabilityStatus="ngModel" type="radio" class="radio-inline" id="availability_status" name="availability_status" value=no>
         </label>
         </tr>
         
         <tr>
-          <td>
+          <td colspan="2">
             <button type="submit" class="btn btn-primary" [ngStyle]="{'background-color': '#1976D2'}">Submit Profile</button>&nbsp;
           </td>
         </tr>
