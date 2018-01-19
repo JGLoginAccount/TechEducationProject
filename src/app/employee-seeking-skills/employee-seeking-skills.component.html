@@ -30,7 +30,7 @@
                     <td>Hours Requested
                     </td>
                     <input ngModel #user_hoursRequested="ngModel" type="number" class="form-control" id="hoursrequested" name="hoursrequested"
-                        required minlength="2" maxlength="3" placeholder="0-10">
+                        required minlength="2" maxlength="3" placeholder="0-10" min="1">
 
                     <tr>
                         <td>Time Frame
@@ -49,10 +49,10 @@
                     </tr>
                     
                     <tr>
-                        <td>Resolution Summary
+                        <td>Resolution Summary (Update after training completed)
                         </td>
                         <input ngModel #user_resolutionSummary="ngModel" type="text" class="form-control" id="summary" name="summary" required minlength="2"
-                            maxlength="100" placeholder="Post completion summary">
+                            maxlength="100">
                     </tr>
                     <tr>
                         <td colspan="2"> 
@@ -64,8 +64,9 @@
        
 
     </form>
-
+    <h2>Mentor Matches Found</h2>
     <table *ngIf="showTable" class="table table-striped table-bordered" id="dataTable" style="width:100%">
+        
         <thead>
             <th>Last Name</th>
             <th>First Name</th>
