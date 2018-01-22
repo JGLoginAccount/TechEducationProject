@@ -15,8 +15,8 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { BasePageComponent } from './base-page/base-page.component';
 import { ResourceLinksComponent } from './resource-links/resource-links.component';
-
-
+import { AdminMentorsComponent } from './admin-mentors/admin-mentors.component';
+import { AdminRequestsComponent } from './admin-requests/admin-requests.component';
 
 
 @NgModule({
@@ -29,8 +29,12 @@ import { ResourceLinksComponent } from './resource-links/resource-links.componen
     AdminComponent,
     LoginComponent,
     BasePageComponent,
-    ResourceLinksComponent
-    
+    ResourceLinksComponent,
+    AdminMentorsComponent,
+    AdminRequestsComponent,
+    AdminMentorsComponent,
+    AdminRequestsComponent,
+        
  
   ],
   imports: [

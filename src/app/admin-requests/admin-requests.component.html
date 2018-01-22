@@ -1,0 +1,20 @@
+    <table *ngIf="showTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <th>Request Date</th>
+            <th>Skill Requested</th>
+            <th>Hours Requested</th>
+            <th>TIme Frame Requested</th>
+            <th>Request Description</th>
+            <th>Other Skill Requested</th>
+            <th>Request Completion Summary</th>
+        </thead>
+        <tr *ngFor="let responses of results">
+            <td> {{ responses?.menteeRequestedDate }} </td>
+            <td> {{ responses?.menteeSkillRequested }} </td>
+            <td> {{ responses?.menteeHoursRequested }} </td>
+            <td> {{ responses?.menteeTimeRequested }} </td>
+            <td> {{ responses?.menteeRequestDescription }} </td>
+            <td> {{ responses?.menteeSkillOtherText }} </td>
+            <td> {{ responses?.menteeCompletedSummary }} </td>
+        </tr>
+    </table>
