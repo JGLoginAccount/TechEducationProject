@@ -36,17 +36,20 @@
     <br>
         
 
-    <table *ngIf="showTableSkills" class="table table-striped table-bordered" id="removeSkill" style="width:100%">
+    <table *ngIf="showTableSkills" class="table table-striped table-bordered" id="removeSkill" style="max-width: 27%">
         <thead>
             <th>Skills</th>
-            <th>Edit Skill</th>
         </thead>
         <tbody>
             <tr *ngFor="let responses of results">
                 <form (ngSubmit)="removeSkills(responses.id)" #userForm="ngForm">
+                    <a style="max-width: 20%">
                     <td> {{ responses?.skills }} </td>
+                </a>
                     <td>
+                        <a style="padding-left:200px">
                         <button type="submit" class="btn btn-primary">Remove Skill</button>
+                        </a>
                     </td>
                 </form>
             </tr>
