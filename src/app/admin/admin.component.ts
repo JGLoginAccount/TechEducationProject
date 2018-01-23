@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
   id;
   addSkill;
   showTableSkills;
-
+  resultsSkills;
 
   constructor(
     private dataService: DataService,
@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
   }
 
   editSkills() {
-    this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.results = resultsSkills
+    this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.resultsSkills = resultsSkills
       if (this.showTableSkills) {
         this.showTableSkills=false;
       }
@@ -66,7 +66,7 @@ export class AdminComponent implements OnInit {
   removeSkills(id) {
     this.id=id;
     this.dataService.deleteRecord("skills/remove", this.id).subscribe(newSkills=>{
-    this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.results = resultsSkills})
+    this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.resultsSkills = resultsSkills})
       
    })
   }
@@ -79,7 +79,7 @@ export class AdminComponent implements OnInit {
 
     this.dataService.addRecord("skills/add",   this.addSkill).subscribe(addedSkills=>{
       console.log("Success")
-      this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.results = resultsSkills})
+      this.dataService.getRecords("skills").subscribe(resultsSkills=>{this.resultsSkills = resultsSkills})
       
     })
   }

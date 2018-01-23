@@ -41,7 +41,7 @@
             <th>Skills</th>
         </thead>
         <tbody>
-            <tr *ngFor="let responses of results">
+            <tr *ngFor="let responses of resultsSkills">
                 <form (ngSubmit)="removeSkills(responses.id)" #userForm="ngForm">
                     <a style="max-width: 20%">
                     <td> {{ responses?.skills }} </td>
