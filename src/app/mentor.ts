@@ -11,6 +11,8 @@ export class Mentor {
     mentorBestContact;
     mentorAvailabilityHours;
     mentorSkills: [MentorSkills];
+    mentorFirstName;
+    mentorLastName;
 
 
 }
