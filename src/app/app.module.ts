@@ -17,7 +17,7 @@ import { ResourceLinksComponent } from './resource-links/resource-links.componen
 import { AdminMentorsComponent } from './admin-mentors/admin-mentors.component';
 import { AdminRequestsComponent } from './admin-requests/admin-requests.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './routing/routing.module';
+import { AppRoutingModule } from './Routing/routing.module';
 
 
 
@@ -50,3 +50,4 @@ import { AppRoutingModule } from './routing/routing.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+  
